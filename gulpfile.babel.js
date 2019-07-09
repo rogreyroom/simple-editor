@@ -80,6 +80,7 @@ const scripts = () => {
     .pipe(babel())
     .pipe(uglify())
     .pipe(concat('main.min.js'))
+    .pipe(sourcemaps.write('maps'))
     .pipe(gulp.dest(config.scripts.dest));
 };
 
