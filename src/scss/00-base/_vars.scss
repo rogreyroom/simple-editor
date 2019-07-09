@@ -1,0 +1,42 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,900|Roboto:400&display=swap&subset=latin-ext');
+
+$fonts: (
+  ff-body: (
+    'Roboto',
+    sans-serif,
+  ),
+  ff-header: (
+    'Montserrat',
+    sans-serif,
+  ),
+  fw-normal: 400,
+  fw-bold: 900,
+  fs-base: 16px,
+  lh-base: 1.5,
+);
+
+// Media queries
+$mq: (
+  small: 568px,
+  medium: 736px,
+  large: 1024px,
+);
+
+// Dimensions
+$dimensions: (
+  header-height: 3rem,
+  footer-height: calc(1.5rem + 1.5rem + 0.8rem),
+  content-width: minmax(288px, 1100px),
+); // footer-height = double padding + font-size
+
+// Colors
+$colors: (
+  c-black: #171717,
+  c-white: #f8f8f8,
+  c-dark-grey: #494949,
+  c-medium-grey: #939292,
+  c-light-grey: #e7e6e6,
+  c-pink: #ff5d73,
+  c-pink-gradient: linear-gradient(45deg, #ff5d73, #fe5196),
+);

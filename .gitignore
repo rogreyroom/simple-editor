@@ -1,0 +1,15 @@
+# VSC history
+.history
+.DS_Store
+
+# Node
+node_modules/
+logs
+*.log
+.npm
+.env
+.nuxt
+
+# Sass
+.sass-cache/
+*.css.map
