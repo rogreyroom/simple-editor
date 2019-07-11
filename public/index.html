@@ -10,15 +10,48 @@
   <body>
     <header class="header"></header>
     <main class="main">
-      <form class="notes">
-        <input name="name" type="text" class="notes__name--js" />
-        <textarea name="note" class="notes__text--js"></textarea>
-        <button class="notes__btn-save--js">save</button>
-        <button class="notes__btn-load--js">load</button>
+      <section class="editor">
+        <h1 class="editor__title">My notebook</h1>
+        <form class="editor__form">
+          <label for="note">Add new note</label>
+          <textarea
+            id="note"
+            name="note"
+            note=""
+            placeholder="leave the field to save"
+            class="editor__text editor__text--js"
+          ></textarea>
+        </form>
+      </section>
 
-        <input type="radio" id="huey" name="note-item" value="3" checked />
-        <label for="huey">Huey</label>
-      </form>
+      <section class="notes">
+        <h2 class="notes__title">My notes</h2>
+        <ul class="notes__list notes__list--js">
+          <!-- <li class="notes__item">
+            <div class="notes__options">
+              <i class="notes__icon icon__edit icon__edit--js" note="id"></i>
+              <i class="notes__icon icon__del icon__del--js" note="id"></i>
+            </div>
+            <p class="notes__content"></p>
+            <footer class="notes__footer"></footer>
+            <div class="notes__nav">
+              <i class="notes__icon icon__left icon__left--js" note="id"></i>
+              <span class="notes__page-number notes__page-number--js">
+                number = note="id"
+              </span>
+              <i class="notes__icon icon__right icon__right--js" note="id"></i>
+            </div>
+          </li> -->
+        </ul>
+        <nav class="sliders-nav">
+          <button class="sliders-nav__left-btn sliders-nav__left-btn--js">
+            <
+          </button>
+          <button class="sliders-nav__right-btn sliders-nav__right-btn--js">
+            >
+          </button>
+        </nav>
+      </section>
     </main>
     <footer class="footer"></footer>
     <script src="./assets/js/main.min.js"></script>

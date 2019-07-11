@@ -1,18 +1,18 @@
-'use strict';
+const noteText = document.querySelector('.editor__text--js');
+const notesList = document.querySelector('.notes__list--js');
 
-const noteName = document.querySelector('.notes__name--js');
-const noteText = document.querySelector('.notes__text--js');
-const noteSave = document.querySelector('.notes__btn-save--js');
-const noteLoad = document.querySelector('.notes__btn-load--js');
-
+// --------------------------------------------------------------------
+// Notes
+// --------------------------------------------------------------------
 const isEmpty = () => {
-  if (String(noteName.value) !== '' && String(noteText.value) !== '') {
+  if (String(noteText.value) !== '') {
     return false;
   } else {
     return true;
   }
 };
 
+// --------------------------------------------------------------------
 const myStorage = () => {
   let myArray;
   if (localStorage.getItem('notes') !== null) {
@@ -22,31 +22,127 @@ const myStorage = () => {
   }
 };
 
-const saveNote = () => {
-  if (!isEmpty()) {
-    let note = {
-      name: noteName.value,
-      text: noteText.value,
-    };
-
-    let notes = myStorage();
-    notes.push(note);
-
-    localStorage.setItem('notes', JSON.stringify(notes));
-  }
+// --------------------------------------------------------------------
+const setListItems = () => {
+  notesItems = document.querySelectorAll('.notes__item--js');
 };
 
-const loadNote = e => {
-  e.preventDefault();
+// --------------------------------------------------------------------
+const addListener = () => {
+  notesItems.forEach(item => {
+    item.querySelector('.icon__edit--js').addEventListener('click', editNote);
+    item.querySelector('.icon__del--js').addEventListener('click', removeNote);
+  });
+};
 
-  let notes = myStorage();
+// --------------------------------------------------------------------
+const clearList = () => {
+  const listItems = document.querySelectorAll('.notes__item--js');
+  listItems.forEach(listItem => {
+    listItem.remove();
+  });
+};
+
+// --------------------------------------------------------------------
+const loadNote = () => {
+  const notes = myStorage();
 
   if (notes.length > 0) {
-    let theNote = notes[notes.length - 1];
-    noteName.value = theNote.name;
-    noteText.value = theNote.text;
+    notes.forEach((note, index) => {
+      let listItem = `
+        <li class="notes__item ${
+          index == 0 ? 'notes__item--active' : ''
+        } notes__item--js">
+          <div class="notes__options">
+            <i class="notes__icon icon__edit icon__edit--js" note="${
+              note.id
+            }">E</i>
+            <i class="notes__icon icon__del icon__del--js" note="${
+              note.id
+            }">U</i>
+          </div>
+          <p class="notes__content notes__content--js">
+          ${note.text}
+          </p>
+          <footer class="notes__footer">
+          <p class="notes__page-number">
+          ${index++}
+          </p>
+          <p class="notes__date">
+          ${note.saveAt}
+          </p>
+          </footer>
+        </li>
+        `;
+      notesList.insertAdjacentHTML('beforeend', listItem);
+    });
+
+    setListItems();
+    addListener();
   }
 };
 
-noteLoad.addEventListener('click', loadNote);
-noteSave.addEventListener('click', saveNote);
+// --------------------------------------------------------------------
+const saveNote = () => {
+  let notes = myStorage();
+
+  if (!isEmpty()) {
+    if (noteText.attributes.note.value === '') {
+      let note = {
+        id: Date.now(),
+        text: noteText.value,
+        saveAt: new Date().toString().slice(0, 24),
+      };
+
+      notes.push(note);
+      localStorage.setItem('notes', JSON.stringify(notes));
+      clearList();
+      loadNote();
+    } else {
+      const noteId = noteText.attributes.note.value;
+      const theNoteIndex = notes.findIndex(note => note.id == noteId);
+
+      notes[theNoteIndex].text = noteText.value;
+      notes[theNoteIndex].saveAt = new Date().toString().slice(0, 24);
+
+      noteText.attributes.note.value = '';
+      localStorage.setItem('notes', JSON.stringify(notes));
+      clearList();
+      loadNote();
+    }
+
+    noteText.value = '';
+  }
+};
+
+// --------------------------------------------------------------------
+const editNote = event => {
+  let notes = myStorage();
+  const noteId = event.target.attributes.note.value;
+  const theNoteIndex = notes.findIndex(note => note.id == noteId);
+
+  noteText.value = notes[theNoteIndex].text;
+  noteText.attributes.note.value = noteId;
+
+  localStorage.setItem('notes', JSON.stringify(notes));
+};
+
+// --------------------------------------------------------------------
+const removeNote = event => {
+  let notes = myStorage();
+  const noteId = event.target.attributes.note.value;
+  const theNoteIndex = notes.findIndex(note => note.id == noteId);
+  const listItem = event.composedPath()[2];
+
+  notes.splice(theNoteIndex, 1);
+  listItem.remove();
+
+  localStorage.setItem('notes', JSON.stringify(notes));
+  setListItems();
+};
+
+// --------------------------------------------------------------------
+// Event listeners and notes loader
+// --------------------------------------------------------------------
+noteText.addEventListener('blur', saveNote);
+loadNote();
