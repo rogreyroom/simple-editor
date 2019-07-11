@@ -75,12 +75,15 @@ const styles = () => {
 
 // Scripts
 const scripts = () => {
-  return gulp
-    .src(config.scripts.src, {sourcemaps: true})
-    .pipe(babel())
-    .pipe(uglify())
-    .pipe(concat('main.min.js'))
-    .pipe(gulp.dest(config.scripts.dest));
+  return (
+    gulp
+      .src(config.scripts.src, {sourcemaps: true})
+      // .pipe(babel())
+      // .pipe(uglify())
+      .pipe(concat('main.min.js'))
+      .pipe(sourcemaps.write('maps'))
+      .pipe(gulp.dest(config.scripts.dest))
+  );
 };
 
 // Images
