@@ -1,6 +1,6 @@
 const noteText = document.querySelector('.editor__text--js');
 const notesList = document.querySelector('.notes__list--js');
-
+const swiper = new Hammer(notesList);
 const arrowLeft = document.querySelector('.sliders-nav__left-btn--js');
 const arrowRight = document.querySelector('.sliders-nav__right-btn--js');
 let notesItems = [];
@@ -149,8 +149,6 @@ const removeNote = event => {
 // Slider
 // --------------------------------------------------------------------
 const moveLeft = () => {
-  console.log(notesItems);
-
   let newIndex = null;
   notesItems.forEach((slide, index) => {
     if (slide.classList.contains('notes__item--active') && newIndex !== index) {
@@ -184,7 +182,13 @@ const moveRight = () => {
 };
 
 // --------------------------------------------------------------------
-
+swiper.on('swipeleft swiperight', event => {
+  if (event.type === 'swipeleft') {
+    moveLeft();
+  } else {
+    moveRight();
+  }
+});
 // --------------------------------------------------------------------
 // Event listeners and notes loader
 // --------------------------------------------------------------------
