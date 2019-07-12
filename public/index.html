@@ -4,51 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Robert Adamczewski - gulp starter</title>
+    <title>Robert Adamczewski - wtf notebook</title>
     <link rel="stylesheet" href="assets/css/style.min.css" />
   </head>
   <body>
     <header class="header"></header>
     <main class="main">
-      <section class="editor">
-        <h1 class="editor__title">My notebook</h1>
-        <form class="editor__form">
-          <label for="note">Add new note</label>
+      <section class="notebook">
+        <h1 class="notebook__title">notebook</h1>
+        <form class="notebook__form">
+          <label for="note" class="notebook__label">Add new note</label>
           <textarea
             id="note"
             name="note"
             note=""
-            placeholder="leave the field to save"
-            class="editor__text editor__text--js"
+            placeholder="autosave after leaving the field"
+            class="notebook__text notebook__text--js"
           ></textarea>
         </form>
       </section>
 
       <section class="notes">
-        <h2 class="notes__title">My notes</h2>
-        <ul class="notes__list notes__list--js">
-          <!-- <li class="notes__item">
-            <div class="notes__options">
-              <i class="notes__icon icon__edit icon__edit--js" note="id"></i>
-              <i class="notes__icon icon__del icon__del--js" note="id"></i>
-            </div>
-            <p class="notes__content"></p>
-            <footer class="notes__footer"></footer>
-            <div class="notes__nav">
-              <i class="notes__icon icon__left icon__left--js" note="id"></i>
-              <span class="notes__page-number notes__page-number--js">
-                number = note="id"
-              </span>
-              <i class="notes__icon icon__right icon__right--js" note="id"></i>
-            </div>
-          </li> -->
-        </ul>
+        <h2 class="notes__title">my notes</h2>
+        <ul class="notes__list notes__list--js"></ul>
         <nav class="sliders-nav">
           <button class="sliders-nav__left-btn sliders-nav__left-btn--js">
-            <
+            <img
+              src="/assets/images/arrow-left"
+              alt="button go left"
+              class="sliders-nav__btn-image"
+            />
           </button>
           <button class="sliders-nav__right-btn sliders-nav__right-btn--js">
-            >
+            <img
+              src="/assets/images/arrow-right"
+              alt="button go right"
+              class="sliders-nav__btn-image"
+            />
           </button>
         </nav>
       </section>

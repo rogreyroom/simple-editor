@@ -1,4 +1,4 @@
-const noteText = document.querySelector('.editor__text--js');
+const noteText = document.querySelector('.notebook__text--js');
 const notesList = document.querySelector('.notes__list--js');
 const swiper = new Hammer(notesList);
 const arrowLeft = document.querySelector('.sliders-nav__left-btn--js');
@@ -54,27 +54,32 @@ const loadNote = () => {
   if (notes.length > 0) {
     notes.forEach((note, index) => {
       let listItem = `
-        <li class="notes__item ${
-          index == 0 ? 'notes__item--active' : ''
-        } notes__item--js">
+        <li class="notes__item ${index == 0 ? 'notes__item--active' : ''}
+          notes__item--js">
           <div class="notes__options">
-            <i class="notes__icon icon__edit icon__edit--js" note="${
-              note.id
-            }">E</i>
-            <i class="notes__icon icon__del icon__del--js" note="${
-              note.id
-            }">U</i>
+            <img
+              src="/assets/images/icon-edit"
+              alt="button edit"
+              class="icon__edit icon__edit--js"
+              note="${note.id}"
+            />
+            <img
+              src="/assets/images/icon-edit"
+              alt="button edit"
+              class="icon__del icon__del--js"
+              note="${note.id}"
+            />
           </div>
           <p class="notes__content notes__content--js">
-          ${note.text}
+            ${note.text}
           </p>
           <footer class="notes__footer">
-          <p class="notes__page-number">
-          ${index++}
-          </p>
-          <p class="notes__date">
-          ${note.saveAt}
-          </p>
+            <p class="notes__date">
+              ${note.saveAt}
+            </p>
+            <p class="notes__page-number">
+              ${index++}
+            </p>
           </footer>
         </li>
         `;
