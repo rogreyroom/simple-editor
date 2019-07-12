@@ -1,0 +1,27 @@
+.navigation {
+  background: var(--ui-01);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 288px;
+  height: 32px;
+  margin-top: var(--space-m);
+
+  &__btn {
+    background: transparent;
+    display: block;
+    border: none;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--hover-row);
+    }
+  }
+
+  &__image {
+    display: block;
+  }
+}

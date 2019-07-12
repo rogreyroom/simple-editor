@@ -12,14 +12,14 @@
     <main class="main">
       <section class="notebook">
         <h1 class="notebook__title">notebook</h1>
-        <form class="notebook__form">
-          <label for="note" class="notebook__label">Add new note</label>
+        <form class="form">
+          <label for="note" class="form__label">Add new note</label>
           <textarea
             id="note"
             name="note"
             note=""
             placeholder="autosave after leaving the field"
-            class="notebook__text notebook__text--js"
+            class="form__text form__text--js"
           ></textarea>
         </form>
       </section>
@@ -27,19 +27,19 @@
       <section class="notes">
         <h2 class="notes__title">my notes</h2>
         <ul class="notes__list notes__list--js"></ul>
-        <nav class="sliders-nav">
-          <button class="sliders-nav__left-btn sliders-nav__left-btn--js">
+        <nav class="navigation">
+          <button class="navigation__btn navigation__left-btn--js">
             <img
               src="/assets/images/arrow-left.svg"
               alt="button go left"
-              class="sliders-nav__btn-image"
+              class="navigation__btn-image"
             />
           </button>
-          <button class="sliders-nav__right-btn sliders-nav__right-btn--js">
+          <button class="navigation__btn navigation__right-btn--js">
             <img
               src="/assets/images/arrow-right.svg"
               alt="button go right"
-              class="sliders-nav__btn-image"
+              class="navigation__btn__btn-image"
             />
           </button>
         </nav>

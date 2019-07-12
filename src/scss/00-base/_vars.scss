@@ -1,5 +1,5 @@
 /* Fonts */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap&subset=latin-ext');
 
 $fonts: (
   ff-body: (
@@ -11,6 +11,7 @@ $fonts: (
     sans-serif,
   ),
   fw-normal: 400,
+  fw-semi-bold: 600,
   fs-base: 16px,
   lh-base: 1.5,
 );
@@ -25,11 +26,13 @@ $mq: (
 // Dimensions
 $dimensions: (
   content-width: minmax(288px, 1100px),
-  space-xl: 3rem space-l: 2rem,
-  sace-m: 1.5rem,
+  space-xl: 3rem,
+  space-l: 2rem,
+  space-m: 1.5rem,
   space-s: 1rem,
   space-xs: 0.5rem,
   space-xxs: 0.25rem,
+  elevation-03: 0 4px 8px rgba(0, 0, 0, 0.1),
 );
 
 // Colors
@@ -41,5 +44,6 @@ $colors: (
   text-01: #232736,
   text-02: #505566,
   text-03: #8b90a1,
-  bg-gradient: linear-gradient(45feg, #fffce1, #fbecfc),
+  hover-row: #eeeef1,
+  bg-gradient: linear-gradient(135deg, #fffce1, #fbecfc),
 );

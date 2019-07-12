@@ -1,8 +1,8 @@
-const noteText = document.querySelector('.notebook__text--js');
+const noteText = document.querySelector('.form__text--js');
 const notesList = document.querySelector('.notes__list--js');
 const swiper = new Hammer(notesList);
-const arrowLeft = document.querySelector('.sliders-nav__left-btn--js');
-const arrowRight = document.querySelector('.sliders-nav__right-btn--js');
+const arrowLeft = document.querySelector('.navigation__left-btn--js');
+const arrowRight = document.querySelector('.navigation__right-btn--js');
 let notesItems = [];
 
 // --------------------------------------------------------------------
@@ -53,6 +53,7 @@ const loadNote = () => {
 
   if (notes.length > 0) {
     notes.forEach((note, index) => {
+      let page = index + 1;
       let listItem = `
         <li class="notes__item ${index == 0 ? 'notes__item--active' : ''}
           notes__item--js">
@@ -60,13 +61,13 @@ const loadNote = () => {
             <img
               src="/assets/images/icon-edit.svg"
               alt="button edit"
-              class="icon__edit icon__edit--js"
+              class="notes__icon icon__edit--js"
               note="${note.id}"
             />
             <img
-              src="/assets/images/icon-edit.svg"
+              src="/assets/images/icon-delete.svg"
               alt="button edit"
-              class="icon__del icon__del--js"
+              class="notes__icon icon__del--js"
               note="${note.id}"
             />
           </div>
@@ -78,7 +79,7 @@ const loadNote = () => {
               ${note.saveAt}
             </p>
             <p class="notes__page-number">
-              ${index++}
+              ${page++}
             </p>
           </footer>
         </li>
@@ -143,6 +144,7 @@ const removeNote = event => {
   const theNoteIndex = notes.findIndex(note => note.id == noteId);
   const listItem = event.composedPath()[2];
 
+  moveRight();
   notes.splice(theNoteIndex, 1);
   listItem.remove();
 

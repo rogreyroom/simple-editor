@@ -1,0 +1,27 @@
+.form {
+  display: flex;
+  flex-direction: column;
+
+  &__label {
+    font-size: 0.875rem;
+    color: var(--text-02);
+    margin-bottom: var(--space-xxs);
+    margin-left: var(--space-xs);
+  }
+
+  &__text {
+    background: var(--ui-01);
+    max-width: 288px;
+    height: 152px;
+    padding: 1rem;
+    resize: none;
+    border-style: inset;
+    border: 1px solid var(--ui-05);
+    border-radius: 4px;
+
+    &::placeholder {
+      font-size: 0.875rem;
+      color: var(--ui-05);
+    }
+  }
+}
