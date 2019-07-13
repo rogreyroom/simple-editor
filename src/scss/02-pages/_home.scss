@@ -1,33 +1,38 @@
 .notebook {
+  width: var(--max-width);
+
   &__title {
     font-size: 1.5rem;
     font-weight: map-get($fonts, fw-semi-bold);
     line-height: 2rem;
     color: var(--brand-01);
-    margin: 1.5rem 0 var(--space-xxs) 0;
+    height: 32px;
     text-align: center;
-    height: 36px;
+    margin: 0;
+    margin-bottom: var(--space-xs);
   }
 }
 
 .notes {
-  display: grid;
+  width: var(--max-width);
+  margin-top: 1.5rem;
 
   &__title {
     font-size: 1.5rem;
     font-weight: map-get($fonts, fw-semi-bold);
     line-height: 2rem;
     color: var(--brand-01);
-    margin: 1.5rem 0 var(--space-xxs) 0;
     text-align: center;
     height: 36px;
+    margin: 0;
+    margin-bottom: var(--space-xxs);
   }
 
   &__list {
     list-style: none;
     margin: 0;
     padding: 0;
-    max-width: 288px;
+    width: 100%;
     min-height: 328px;
 
     position: relative;
@@ -49,57 +54,8 @@
     }
   }
 
-  &__options {
-    background: var(--brand-01);
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    width: 288px;
-    height: 32px;
-    padding: var(--space-xxs) var(--space-xs);
-  }
-
-  &__icon {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-
-    &:hover {
-      //   stroke: var(--hover-row);
-      filter: brightness(0.6);
-    }
-  }
-
   &__content {
     margin: var(--space-xs);
     min-height: 240px;
-  }
-
-  &__footer {
-    border-top: 1px solid var(--ui-03);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: var(--space-xs);
-  }
-
-  &__date {
-    font-size: 0.75rem;
-    color: var(--text-03);
-    margin: 0;
-    vertical-align: middle;
-    line-height: 1.5rem;
-  }
-
-  &__page-number {
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    border-radius: 4px;
-    border: 1px solid var(--ui-03);
-    font-size: 0.875rem;
-    text-align: center;
-    vertical-align: middle;
-    margin: 0;
   }
 }

@@ -15,7 +15,7 @@ body {
   font-size: map-get($fonts, fs-base);
   line-height: map-get($fonts, lh-base);
   background: var(--bg-gradient);
-  color: var(--c-black);
+  color: var(--text-01);
 }
 
 h1,

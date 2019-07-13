@@ -34,8 +34,12 @@ const setListItems = () => {
 // --------------------------------------------------------------------
 const addListener = () => {
   notesItems.forEach(item => {
-    item.querySelector('.icon__edit--js').addEventListener('click', editNote);
-    item.querySelector('.icon__del--js').addEventListener('click', removeNote);
+    item
+      .querySelector('.options-panel__edit-btn--js')
+      .addEventListener('click', editNote);
+    item
+      .querySelector('.options-panel__del-btn--js')
+      .addEventListener('click', removeNote);
   });
 };
 
@@ -57,28 +61,32 @@ const loadNote = () => {
       let listItem = `
         <li class="notes__item ${index == 0 ? 'notes__item--active' : ''}
           notes__item--js">
-          <div class="notes__options">
-            <img
-              src="/assets/images/icon-edit.svg"
-              alt="button edit"
-              class="notes__icon icon__edit--js"
-              note="${note.id}"
-            />
-            <img
-              src="/assets/images/icon-delete.svg"
-              alt="button edit"
-              class="notes__icon icon__del--js"
-              note="${note.id}"
-            />
+          <div class="options-panel">
+            <button class="options-panel__btn options-panel__del-btn--js">
+              <img
+                src="/assets/images/icon-delete.svg"
+                alt="button edit"
+                class="options-panel__icon"
+                note="${note.id}"
+              />
+            </button>
+            <button class="options-panel__btn options-panel__edit-btn--js">
+              <img
+                src="/assets/images/icon-edit.svg"
+                alt="button edit"
+                class="options-panel__icon"
+                note="${note.id}"
+              />
+            </button>
           </div>
           <p class="notes__content notes__content--js">
             ${note.text}
           </p>
-          <footer class="notes__footer">
-            <p class="notes__date">
+          <footer class="notes-footer">
+            <p class="notes-footer__date">
               ${note.saveAt}
             </p>
-            <p class="notes__page-number">
+            <p class="notes-footer__page-number">
               ${page++}
             </p>
           </footer>
