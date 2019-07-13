@@ -111,7 +111,7 @@ const loadNote = () => {
 
     setListItems();
     addListener();
-    pageCounter.innerHTML = `pages ${notes.length}`;
+    pageCounter.innerHTML = `notes ${notes.length}`;
     notesSection.classList.add('notes--show');
   } else {
     notesSection.classList.remove('notes--show');
@@ -190,7 +190,7 @@ const removeNote = event => {
 
     localStorage.setItem('notes', JSON.stringify(notes));
     setListItems();
-    pageCounter.innerHTML = `pages ${notes.length}`;
+    pageCounter.innerHTML = `notes ${notes.length}`;
     if (notes.length === 0) {
       loadNote();
     }
