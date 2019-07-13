@@ -25,6 +25,7 @@ It supposed to be a simple editor but let's make a notebook - or so
 
 - [gulp-starter](https://github.com/rogreyroom/gulp-starter),
 - [pdkit](https://pdkit.co/)
+- [hammerjs](https://hammerjs.github.io/) touch gestures library
 
 ## Deploy
 
