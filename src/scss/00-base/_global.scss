@@ -14,8 +14,8 @@ body {
   font-weight: map-get($fonts, fw-normal);
   font-size: map-get($fonts, fs-base);
   line-height: map-get($fonts, lh-base);
-  background: var(--c-white);
-  color: var(--c-black);
+  background: var(--bg-gradient);
+  color: var(--text-01);
 }
 
 h1,
@@ -23,5 +23,5 @@ h2,
 h3,
 h4 {
   font-family: map-get($fonts, ff-header);
-  font-weight: map-get($fonts, fw-bold);
+  font-weight: map-get($fonts, fw-semi-bold);
 }

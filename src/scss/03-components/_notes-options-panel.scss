@@ -1,0 +1,30 @@
+.options-panel {
+  background: var(--brand-01);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: var(--max-width);
+  height: 32px;
+  padding: var(--space-xxs) var(--space-xs);
+
+  &__btn {
+    background: transparent;
+    display: block;
+    border: none;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+
+    &:hover .options-panel__icon,
+    &:focus .options-panel__icon,
+    &:active .options-panel__icon {
+      filter: brightness(0.6);
+      outline: opacity(0.6);
+    }
+  }
+
+  &__icon {
+    display: block;
+  }
+}
