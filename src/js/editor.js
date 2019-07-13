@@ -1,4 +1,5 @@
 const noteText = document.querySelector('.form__text--js');
+const notesSection = document.querySelector('.notes--js');
 const notesList = document.querySelector('.notes__list--js');
 const swiper = new Hammer(notesList);
 const arrowLeft = document.querySelector('.navigation__left-btn--js');
@@ -109,12 +110,15 @@ const loadNote = () => {
 
     setListItems();
     addListener();
+    notesSection.classList.add('notes--show');
+  } else {
+    notesSection.classList.remove('notes--show');
   }
 };
 
 // --------------------------------------------------------------------
 const saveNote = () => {
-  let notes = myStorage();
+  const notes = myStorage();
 
   if (!isEmpty()) {
     if (noteText.attributes.note.value === '') {
@@ -147,11 +151,13 @@ const saveNote = () => {
 
 // --------------------------------------------------------------------
 const editNote = event => {
+  event.preventDefault();
+
   if (
     event.type === 'click' ||
     (event.type === 'keypress' && event.key === 'Enter')
   ) {
-    let notes = myStorage();
+    const notes = myStorage();
     const noteId = event.target.attributes.note.value;
     const theNoteIndex = notes.findIndex(note => note.id == noteId);
 
@@ -165,14 +171,16 @@ const editNote = event => {
 
 // --------------------------------------------------------------------
 const removeNote = event => {
+  event.preventDefault();
+
   if (
     event.type === 'click' ||
     (event.type === 'keypress' && event.key === 'Enter')
   ) {
-    let notes = myStorage();
+    const notes = myStorage();
     const noteId = event.target.attributes.note.value;
     const theNoteIndex = notes.findIndex(note => note.id == noteId);
-    const listItem = event.composedPath()[2];
+    const listItem = event.composedPath()[3];
 
     moveRight();
     notes.splice(theNoteIndex, 1);
@@ -180,6 +188,9 @@ const removeNote = event => {
 
     localStorage.setItem('notes', JSON.stringify(notes));
     setListItems();
+    if (notes.length === 0) {
+      loadNote();
+    }
   }
 };
 
