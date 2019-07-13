@@ -27,4 +27,12 @@
   &__image {
     display: block;
   }
+
+  &__counter {
+    font-size: 0.75rem;
+    color: var(--text-03);
+    margin: 0;
+    vertical-align: middle;
+    line-height: 2rem;
+  }
 }
