@@ -75,7 +75,7 @@ const loadNote = () => {
               note="${note.id}"
             >
               <img
-                src="/assets/images/icon-delete.svg"
+                src="assets/images/icon-delete.svg"
                 alt="button edit"
                 class="options-panel__icon"
                 note="${note.id}"
@@ -86,7 +86,7 @@ const loadNote = () => {
               note="${note.id}"
             >
               <img
-                src="/assets/images/icon-edit.svg"
+                src="assets/images/icon-edit.svg"
                 alt="button edit"
                 class="options-panel__icon"
                 note="${note.id}"
