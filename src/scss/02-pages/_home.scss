@@ -16,6 +16,9 @@
 .notes {
   width: var(--max-width);
   margin-top: 1.5rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s ease-in-out;
 
   &__title {
     font-size: 1.5rem;
@@ -57,5 +60,10 @@
   &__content {
     margin: var(--space-xs);
     min-height: 240px;
+  }
+
+  &--show {
+    visibility: visible;
+    opacity: 1;
   }
 }
