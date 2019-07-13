@@ -16,11 +16,17 @@
     height: 24px;
     cursor: pointer;
 
+    &:focus,
+    &:active {
+      outline-color: var(--ui-03);
+      outline-style: solid;
+      outline-width: thin;
+    }
+
     &:hover .options-panel__icon,
     &:focus .options-panel__icon,
     &:active .options-panel__icon {
       filter: brightness(0.6);
-      outline: opacity(0.6);
     }
   }
 
