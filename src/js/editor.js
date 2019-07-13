@@ -1,6 +1,7 @@
 const noteText = document.querySelector('.form__text--js');
 const notesSection = document.querySelector('.notes--js');
 const notesList = document.querySelector('.notes__list--js');
+const pageCounter = document.querySelector('.counter--js');
 const swiper = new Hammer(notesList);
 const arrowLeft = document.querySelector('.navigation__left-btn--js');
 const arrowRight = document.querySelector('.navigation__right-btn--js');
@@ -110,6 +111,7 @@ const loadNote = () => {
 
     setListItems();
     addListener();
+    pageCounter.innerHTML = `pages ${notes.length}`;
     notesSection.classList.add('notes--show');
   } else {
     notesSection.classList.remove('notes--show');
@@ -188,6 +190,7 @@ const removeNote = event => {
 
     localStorage.setItem('notes', JSON.stringify(notes));
     setListItems();
+    pageCounter.innerHTML = `pages ${notes.length}`;
     if (notes.length === 0) {
       loadNote();
     }
