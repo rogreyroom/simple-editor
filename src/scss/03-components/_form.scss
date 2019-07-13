@@ -26,5 +26,12 @@
     &::placeholder {
       color: var(--ui-05);
     }
+
+    &:focus,
+    &:active {
+      outline-color: var(--ui-05);
+      outline-style: solid;
+      outline-width: thin;
+    }
   }
 }
